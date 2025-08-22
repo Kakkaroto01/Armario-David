@@ -102,23 +102,6 @@
       -ms-overflow-style: none;
     }
     .scroll-container::-webkit-scrollbar { display: none; }
-.scroll-container {
-  justify-content: center;
-  width: 420px; /* 3 imágenes de 140px + márgenes */
-  overflow-x: scroll;
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
-  position: relative;
-  cursor: grab;
-}
-.scroll-container:active {
-  cursor: grabbing;
-}
-.scroll-container img.category-image {
-  scroll-snap-align: center;
-  transition: opacity 0.3s ease, transform 0.3s ease;
-}
-
     img.category-image {
       flex: 0 0 auto;
       width: 140px;
@@ -456,62 +439,11 @@ async function init() {
   }
 }
 init();
-document.addEventListener("click", function(event) {
-  const isFilterButton = event.target.classList.contains("btnFilters");
-  const isInsideMenu = event.target.closest(".filterMenu");
 
-  if (!isFilterButton && !isInsideMenu) {
-    document.querySelectorAll(".filterMenu").forEach(menu => {
-      if (menu.style.display === "block") {
-        menu.style.display = "none";
-
-        // Extraer la categoría desde el ID del menú
-        const catName = menu.id.replace("filterMenu-", "");
-
-        // Aplicar filtros y reconstruir el carrusel
-        const cat = categories.find(c => c.name === catName);
-        if (!cat) return;
-
-        const activeFilters = getCategoryFilters(cat.name);
-        let filteredImages;
-
-        if (cat.name === "accesorio") {
-          filteredImages = cat.images; // sin filtro
-        } else if (cat.name === "arriba" || cat.name === "superior") {
-          filteredImages = cat.images.filter(item => {
-            if (item.estilos?.some(est => activeFilters.includes(est))) return true;
-            if (activeFilters.includes("friki") && item.friki) return true;
-            return false;
-          });
-        } else {
-          filteredImages = cat.images.filter(item => {
-            return item.estilos?.some(est => activeFilters.includes(est));
-          });
-        }
-
-        // Si no hay ninguna imagen que cumpla, mostrar todas como fallback
-        if (filteredImages.length === 0) filteredImages = cat.images;
-
-        // Actualizar temporalmente la lista de imágenes filtradas
-        const originalImages = [...cat.images]; // backup
-        cat.images = filteredImages;
-        buildCarousel(cat);
-        cat.images = originalImages; // restaurar
-        const container = document.getElementById(cat.containerId);
-        initScrollPosition(container, cat.vertical);
-        if (cat.vertical) {
-          updateActiveImageVertical(container);
-        } else {
-          updateActiveImage(container);
-        }
-      }
-    });
-  }
-});
-
-// Hacer scroll con arrastre de ratón en carruseles horizontales
+// Hacer scroll con arrastre de ratón solo en carruseles horizontales
 document.querySelectorAll('.scroll-container').forEach(container => {
-  if (container.scrollWidth <= container.clientWidth) return;
+  if (container.scrollHeight > container.clientHeight) return; // saltar verticales
+
   let isDown = false;
   let startX;
   let scrollLeft;
@@ -519,7 +451,7 @@ document.querySelectorAll('.scroll-container').forEach(container => {
   container.addEventListener('mousedown', (e) => {
     isDown = true;
     container.classList.add('active');
-    startX = e.pageX - container.offsetLeft;
+    startX = e.pageX - container.getBoundingClientRect().left;
     scrollLeft = container.scrollLeft;
   });
   container.addEventListener('mouseleave', () => {
@@ -533,8 +465,8 @@ document.querySelectorAll('.scroll-container').forEach(container => {
   container.addEventListener('mousemove', (e) => {
     if (!isDown) return;
     e.preventDefault();
-    const x = e.pageX - container.offsetLeft;
-    const walk = (x - startX) * 1.5;
+    const x = e.pageX - container.getBoundingClientRect().left;
+    const walk = (x - startX) * 1.5; // velocidad de arrastre
     container.scrollLeft = scrollLeft - walk;
   });
 });
@@ -543,3 +475,4 @@ document.querySelectorAll('.scroll-container').forEach(container => {
 
 </body>
 </html>
+
