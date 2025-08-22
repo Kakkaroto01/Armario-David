@@ -1,0 +1,169 @@
+[
+  {
+    "categoria": "zapatos",
+    "url": "zapatos1.png",
+    "colores": ["gris"],
+    "estilos": ["verano"],
+    "friki": false
+  },
+  {
+    "categoria": "zapatos",
+    "url": "zapatos2.png",
+    "colores": ["negro", "rojo", "blanco"],
+    "estilos": ["casual", "verano", "invierno"],
+    "friki": false
+  },
+  {
+    "categoria": "zapatos",
+    "url": "zapatos3.png",
+    "colores": ["verde", "blanco"],
+    "estilos": ["arreglado", "casual", "verano", "invierno"],
+    "friki": false
+  },
+  {
+    "categoria": "zapatos",
+    "url": "zapatos4.png",
+    "colores": ["beige", "blanco", "gris"],
+    "estilos": ["arreglado", "casual", "verano", "invierno"],
+    "friki": false
+  },
+  {
+    "categoria": "zapatos",
+    "url": "zapatos5.png",
+    "colores": ["negro"],
+    "estilos": ["casual", "verano", "invierno"],
+    "friki": false
+  },
+  {
+    "categoria": "head",
+    "url": "head1.png",
+    "colores": ["negro"],
+    "estilos": ["casual", "verano"],
+    "friki": false
+  },
+  {
+    "categoria": "accesorio",
+    "url": "accesorio1.png",
+    "colores": ["gris"],
+    "estilos": ["casual", "verano", "invierno"],
+    "friki": true
+  },
+  {
+    "categoria": "accesorio",
+    "url": "accesorio2.png",
+    "colores": ["blanco","rojo"],
+    "estilos": ["arreglado","casual", "verano", "invierno"],
+    "friki": false
+  },
+  {
+    "categoria": "superior",
+    "url": "superior1.png",
+    "colores": ["gris","azul"],
+    "estilos": ["casual", "invierno"],
+    "friki": false
+  },
+  {
+    "categoria": "superior",
+    "url": "superior2.png",
+    "colores": ["gris","negro"],
+    "estilos": ["casual", "invierno"],
+    "friki": false
+  },
+  {
+    "categoria": "superior",
+    "url": "superior3.png",
+    "colores": ["verde"],
+    "estilos": ["casual", "invierno"],
+    "friki": false
+  },
+  {
+    "categoria": "superior",
+    "url": "superior4.png",
+    "colores": ["gris","negro"],
+    "estilos": ["casual", "invierno"],
+    "friki": false
+  },
+  {
+    "categoria": "superior",
+    "url": "superior5.png",
+    "colores": ["negro","roja","verde"],
+    "estilos": ["casual", "invierno"],
+    "friki": true
+  },
+  {
+    "categoria": "superior",
+    "url": "superior6.png",
+    "colores": ["negro"],
+    "estilos": ["casual", "invierno"],
+    "friki": false
+  },
+  {
+    "categoria": "superior",
+    "url": "superior7.png",
+    "colores": ["beige"],
+    "estilos": ["casual","arreglado", "invierno"],
+    "friki": false
+  },
+  {
+    "categoria": "superior",
+    "url": "superior8.png",
+    "colores": ["beige"],
+    "estilos": ["casual", "invierno"],
+    "friki": false
+  },
+  {
+    "categoria": "superior",
+    "url": "superior9.png",
+    "colores": ["gris","blanco","negro"],
+    "estilos": ["casual", "invierno"],
+    "friki": false
+  },
+  {
+    "categoria": "superior",
+    "url": "superior10.png",
+    "colores": ["blanco"],
+    "estilos": ["casual", "invierno"],
+    "friki": false
+  },
+  {
+    "categoria": "superior",
+    "url": "superior11.png",
+    "colores": ["negro"],
+    "estilos": ["casual", "invierno","arreglado"],
+    "friki": false
+  },
+  {
+    "categoria": "superior",
+    "url": "superior12.png",
+    "colores": ["azul"],
+    "estilos": ["casual", "invierno","arreglado"],
+    "friki": false
+  },
+  {
+    "categoria": "superior",
+    "url": "superior13.png",
+    "colores": ["negro"],
+    "estilos": ["casual", "invierno","arreglado"],
+    "friki": false
+  },
+  {
+    "categoria": "superior",
+    "url": "superior14.png",
+    "colores": ["negro"],
+    "estilos": ["casual", "invierno","arreglado"],
+    "friki": false
+  },
+  {
+    "categoria": "superior",
+    "url": "superior15.png",
+    "colores": ["negro","verde"],
+    "estilos": ["casual", "invierno"],
+    "friki": true
+  },{
+    "categoria": "superior",
+    "url": "superior16.png",
+    "colores": ["azul"],
+    "estilos": ["casual", "invierno"],
+    "friki": false
+  }
+]
