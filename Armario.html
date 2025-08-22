@@ -102,6 +102,23 @@
       -ms-overflow-style: none;
     }
     .scroll-container::-webkit-scrollbar { display: none; }
+.scroll-container {
+  justify-content: center;
+  width: 420px; /* 3 imágenes de 140px + márgenes */
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  position: relative;
+  cursor: grab;
+}
+.scroll-container:active {
+  cursor: grabbing;
+}
+.scroll-container img.category-image {
+  scroll-snap-align: center;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
     img.category-image {
       flex: 0 0 auto;
       width: 140px;
@@ -491,6 +508,37 @@ document.addEventListener("click", function(event) {
     });
   }
 });
+
+// Hacer scroll con arrastre de ratón en carruseles horizontales
+document.querySelectorAll('.scroll-container').forEach(container => {
+  if (container.scrollWidth <= container.clientWidth) return;
+  let isDown = false;
+  let startX;
+  let scrollLeft;
+
+  container.addEventListener('mousedown', (e) => {
+    isDown = true;
+    container.classList.add('active');
+    startX = e.pageX - container.offsetLeft;
+    scrollLeft = container.scrollLeft;
+  });
+  container.addEventListener('mouseleave', () => {
+    isDown = false;
+    container.classList.remove('active');
+  });
+  container.addEventListener('mouseup', () => {
+    isDown = false;
+    container.classList.remove('active');
+  });
+  container.addEventListener('mousemove', (e) => {
+    if (!isDown) return;
+    e.preventDefault();
+    const x = e.pageX - container.offsetLeft;
+    const walk = (x - startX) * 1.5;
+    container.scrollLeft = scrollLeft - walk;
+  });
+});
+
 </script>
 
 </body>
